@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#f59e0b" />
+    <meta name="description" content="Yatra 360 - Your comprehensive temple companion for spiritual journeys, darshan booking, and divine guidance" />
+    <title>Yatra 360 - Your Spiritual Journey Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif']
+            },
+            colors: {
+              'temple': {
+                50: '#fff7ed',
+                100: '#ffedd5',
+                500: '#f59e0b',
+                600: '#d97706',
+                700: '#b45309'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "jsqr": "https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.mjs"
+  }
+}
+</script>
+<style>
+  .high-contrast {
+      background-color: #1a202c !important;
+      color: #f7fafc !important;
+  }
+  .high-contrast .bg-white, 
+  .high-contrast .bg-white\/95, 
+  .high-contrast .bg-orange-50,
+  .high-contrast .bg-gray-100,
+  .high-contrast .bg-amber-50 {
+      background-color: #2d3748 !important;
+      color: #edf2f7 !important;
+      border-color: #4a5568 !important;
+  }
+  .high-contrast .text-gray-800, 
+  .high-contrast .text-gray-700,
+  .high-contrast .text-yellow-800,
+  .high-contrast .text-red-800,
+  .high-contrast .text-amber-800,
+  .high-contrast .text-amber-700 {
+      color: #f7fafc !important;
+  }
+  .high-contrast .text-gray-500, 
+  .high-contrast .text-gray-600,
+  .high-contrast .text-gray-400 {
+      color: #a0aec0 !important;
+  }
+  .high-contrast .text-orange-600, 
+  .high-contrast .text-orange-700,
+  .high-contrast .text-orange-500 {
+      color: #f6ad55 !important;
+  }
+  .high-contrast .accent-orange-500 {
+      accent-color: #f6ad55;
+  }
+  .high-contrast .bg-orange-300,
+  .high-contrast .bg-amber-300 {
+      background-color: #dd6b20 !important;
+  }
+   .high-contrast .bg-gray-200 {
+      background-color: #4a5568 !important;
+      color: #f7fafc !important;
+  }
+  .high-contrast .border-gray-200,
+  .high-contrast .border-b,
+  .high-contrast .border-t {
+      border-color: #4a5568 !important;
+  }
+  .high-contrast .shadow-sm,
+  .high-contrast .shadow-md,
+  .high-contrast .shadow-2xl {
+      box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+  }
+  .high-contrast .bg-red-50 {
+      background-color: #451a23 !important;
+  }
+
+  /* Loading animations */
+  .skeleton-wave {
+    position: relative;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes skeleton-wave {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    from { box-shadow: 0 0 5px rgba(251, 146, 60, 0.5); }
+    to { box-shadow: 0 0 15px rgba(251, 146, 60, 0.8); }
+  }
+
+  /* Enhanced transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-bounce {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+   .high-contrast .bg-yellow-50 {
+      background-color: #4c4222 !important;
+  }
+
+  /* Enhanced animations and transitions */
+  .animate-fade-in {
+      animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+      animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-bounce-gentle {
+      animation: bounceGentle 2s infinite;
+  }
+
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  @keyframes slideUp {
+      from {
+          opacity: 0;
+          transform: translateY(30px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  @keyframes bounceGentle {
+      0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+      }
+      40% {
+          transform: translateY(-3px);
+      }
+      60% {
+          transform: translateY(-2px);
+      }
+  }
+
+  /* Enhanced card styles */
+  .card-enhanced {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #f3f4f6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-enhanced:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+  }
+
+  .card-interactive {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #f3f4f6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+  }
+  .card-interactive:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+      border-color: #fed7aa;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d97706;
+      border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #b45309;
+  }
+
+  /* Responsive text utilities */
+  @media (max-width: 640px) {
+    .text-responsive-lg { font-size: 1.25rem; }
+    .text-responsive-xl { font-size: 1.5rem; }
+    .text-responsive-2xl { font-size: 1.75rem; }
+  }
+
+  /* Loading shimmer effect */
+  .shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+  }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-amber-50">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

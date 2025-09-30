@@ -1,0 +1,8 @@
+{
+  "name": "yatra 360",
+  "description": "An AI-powered web app for pilgrimage crowd management at major temples, providing real-time updates, slot booking, and safety alerts to enhance the pilgrim experience.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
